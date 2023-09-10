@@ -63,10 +63,14 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Set env var2
+        run: echo "COLOR=green" >> "$GITHUB_OUTPUT"
+
       - name: Set env var
         env:
           RELEASE_TAG: ${{ steps.get_release.outputs.RELEASE_TAG }}
-        run: echo "RELEASE_TAG=$(echo $RELEASE_TAG) >> $GITHUB_ENV"
+        run: echo "RELEASE_TAG=$(echo $RELEASE_TAG)" >> "$GITHUB_OUTPUT"
+
       
       - name: Extract metadata (tags, labels) for Docker
         id: meta
