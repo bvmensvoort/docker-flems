@@ -1,6 +1,6 @@
 FROM node:17.9
 WORKDIR /usr/src/
-RUN echo $RELEASE_TAG , $INPUT_RELEASE_TAG , $(echo $RELEASE_TAG)
+RUN echo "Release tag: [$RELEASE_TAG]."
 RUN git clone --depth 1 --branch $RELEASE_TAG https://github.com/porsager/flems
 WORKDIR /usr/src/flems
 RUN npm install ;\
