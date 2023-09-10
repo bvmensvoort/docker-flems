@@ -70,8 +70,13 @@ jobs:
         env:
           RELEASE_TAG: ${{ steps.get_release.outputs.RELEASE_TAG }}
         run: echo "RELEASE_TAG=$(echo $RELEASE_TAG)" >> "$GITHUB_OUTPUT"
+        
+      - name: Set env var3
+        env:
+          RELEASE_TAG: ${{ steps.get_release.outputs.RELEASE_TAG }}
+        run: echo "Run echo Release tag $RELEASE_TAG - $COLOR"
+          
 
-      
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
